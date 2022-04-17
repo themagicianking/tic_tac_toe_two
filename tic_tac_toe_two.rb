@@ -1,17 +1,15 @@
 class Board
-  board_status = {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9}
+  def initialize
+  end
 
-  def display_board(board_status)
-    puts "  #{board_status[:a]} | b | c
+  def board_display(a, b, c, d, e, f, g, h, i)
+    puts "    #{a} | #{b} | #{c}
     --+---+--
-     d | e | f
+     #{d} | #{e} | #{f}
     --+---+--
-     g | h | i"
+     #{g} | #{h} | #{i}"
   end
 end
-
-game = Board.new
-game.display_board(board_status)
 
 class Player
   def initialize
@@ -21,8 +19,8 @@ class Player
     @symbol = gets
   end
 
-  def board_fill
-    # stores all the spaces that this player has taken up
+  def taken_spaces
+    @spaces = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
   def turn
@@ -39,12 +37,21 @@ class Player
   end
 end
 
+class Game
+  def initialize
+    @player_one = Player.new
+    @player_two = Player.new
+    @board = Board.new
+  end
+
+  def display
+    @board.board_display(1, 2, 3, 4, 5, 6, 7, 8, 9)
+  end
+end
+
+first_game = Game.new
+first_game.display
+
 # so the second to last player's filled spaces get pulled in
 # then the last player
 # then a new instance of the board would be generated
-
-puts "PLAYER ONE:"
-player_one = Player.new
-puts "PLAYER TWO:"
-player_two = Player.new
-player_one.display_board
