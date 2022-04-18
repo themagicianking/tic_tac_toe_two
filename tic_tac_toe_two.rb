@@ -1,10 +1,20 @@
-module Board
+module Display
   def display(a, b, c, d, e, f, g, h, i)
     puts "    #{a} | #{b} | #{c}
     --+---+--
      #{d} | #{e} | #{f}
     --+---+--
      #{g} | #{h} | #{i}"
+  end
+end
+
+class Board
+  def initialize
+    @tiles = {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9}
+  end
+
+  def update_score(position, symbol_test)
+    @tiles[:position] = symbol_test
   end
 end
 
@@ -20,26 +30,23 @@ class Player
 end
 
 class Game
-  include Board
-  attr_reader :player_one, :player_two, :tiles
+  include Display
+  attr_reader :player_one, :player_two, :board, :choice
 
   def initialize
     puts "PLAYER ONE."
     @player_one = Player.new
     puts "PLAYER TWO."
     @player_two = Player.new
+    @board = Board.new
   end
 
-  def tiles
-    tiles = {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9}
-  end
-
-  def turn(player)
+  def turn(player, whose_turn)
     puts "#{player}, please enter the number of the square you would like to mark."
     @choice = gets.to_i
   end
 end
 
 new_game = Game.new
-new_game.display(new_game.tiles[:a], new_game.tiles[:b], new_game.tiles[:c], new_game.tiles[:d], new_game.tiles[:e], new_game.tiles[:f], new_game.tiles[:g], new_game.tiles[:h], new_game.tiles[:i])
-new_game.turn(new_game.player_one.name.to_s.chomp)
+new_game.turn(new_game.player_one.name.to_s.chomp, new_game.player_one)
+new_game.board.update_score(new_game.choice, new_game.player_one.symbol)
