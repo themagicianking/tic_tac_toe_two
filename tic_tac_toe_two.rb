@@ -15,8 +15,28 @@ class Board
     @tiles = {a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9}
   end
 
-  def update_score(position, symbol_test)
-    @tiles[:position] = symbol_test
+  def update_score(position, current_symbol, other_symbol)
+    if position == @tiles[:a]
+      @tiles[:a] = current_symbol
+    elsif position == @tiles[:b]
+      @tiles[:b] = current_symbol
+    elsif position == @tiles[:c]
+      @tiles[:c] = current_symbol
+    elsif position == @tiles[:d]
+      @tiles[:d] = current_symbol
+    elsif position == @tiles[:e]
+      @tiles[:e] = current_symbol
+    elsif position == @tiles[:f]
+      @tiles[:f] = current_symbol
+    elsif position == @tiles[:g]
+      @tiles[:g] = current_symbol
+    elsif position == @tiles[:h]
+      @tiles[:h] = current_symbol
+    elsif position == @tiles[:i]
+      @tiles[:i] = current_symbol
+    else
+      puts "error!"
+    end
   end
 end
 
@@ -51,6 +71,12 @@ class Game
 end
 
 new_game = Game.new
-new_game.display(new_game.board.tiles[:a], 2, 3, 4, 5, 6, 7, 8, 9)
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+  new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+  new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
 new_game.player_one.turn
-new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol)
+new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol.chomp, new_game.player_two.symbol.chomp)
+puts new_game.board.tiles
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+  new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+  new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
