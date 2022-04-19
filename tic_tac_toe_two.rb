@@ -68,6 +68,15 @@ class Game
     @player_two = Player.new
     @board = Board.new
   end
+
+  def win_check(player, symbol, tiles)
+    if tiles[:a] == symbol && tiles[:b] == symbol && tiles[:c] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:a] == symbol && tiles[:e] == symbol && tiles[:i] == symbol
+      puts "#{player}, you win!"
+    else
+    end
+  end
 end
 
 new_game = Game.new
@@ -130,6 +139,9 @@ new_game.player_one.symbol.chomp)
 
 new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
 new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
-new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])=end
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+=end
 
 # insert method to check winning here
+
+new_game.win_check(new_game.player_one, new_game.player_one.symbol, new_game.board.tiles)
