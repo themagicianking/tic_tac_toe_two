@@ -74,8 +74,20 @@ class Game
       puts "#{player}, you win!"
     elsif tiles[:a] == symbol && tiles[:e] == symbol && tiles[:i] == symbol
       puts "#{player}, you win!"
+    elsif tiles[:a] == symbol && tiles[:d] == symbol && tiles[:g] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:b] == symbol && tiles[:e] == symbol && tiles[:h] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:c] == symbol && tiles[:f] == symbol && tiles[:i] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:c] == symbol && tiles[:e] == symbol && tiles[:g] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:d] == symbol && tiles[:e] == symbol && tiles[:f] == symbol
+      puts "#{player}, you win!"
+    elsif tiles[:g] == symbol && tiles[:h] == symbol && tiles[:i] == symbol
+      puts "#{player}, you win!"
     else
-      puts "hmm...it's not working."
+      # if turn checker has been going for long enough puts "it's a tie"
     end
   end
 end
@@ -146,3 +158,5 @@ new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
 # insert method to check winning here
 
 new_game.win_check(new_game.player_one.name, new_game.player_one.symbol.chomp, new_game.board.tiles)
+
+# add in contitional to win_check that announces a tie after a certain number of turns after which a win is no longer possible
