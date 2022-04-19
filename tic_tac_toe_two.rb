@@ -75,6 +75,7 @@ class Game
     elsif tiles[:a] == symbol && tiles[:e] == symbol && tiles[:i] == symbol
       puts "#{player}, you win!"
     else
+      puts "hmm...it's not working."
     end
   end
 end
@@ -144,4 +145,4 @@ new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
 
 # insert method to check winning here
 
-new_game.win_check(new_game.player_one, new_game.player_one.symbol, new_game.board.tiles)
+new_game.win_check(new_game.player_one.name, new_game.player_one.symbol.chomp, new_game.board.tiles)
