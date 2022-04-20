@@ -107,17 +107,17 @@ new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.bo
 new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
 new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
 
-new_game.player_two.turn
-
-new_game.board.update_score(new_game.player_two.choice, new_game.player_two.symbol.chomp,
-new_game.player_one.symbol.chomp)
-
-new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
-new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
-new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
-
 # look up that thingy that measures how many times a method has been called to use it on player one's turn and stop it after three turns to check win conditions but for now, quick n dirty coding
 
+new_game.player_two.turn
+
+new_game.board.update_score(new_game.player_two.choice, new_game.player_two.symbol.chomp,
+new_game.player_one.symbol.chomp)
+
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
 new_game.player_one.turn
 
 new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol.chomp,
@@ -140,23 +140,53 @@ new_game.player_one.turn
 
 new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol.chomp,
 new_game.player_two.symbol.chomp)
-
-new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
-new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
-new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
-
-=begin new_game.player_two.turn
-
-new_game.board.update_score(new_game.player_two.choice, new_game.player_two.symbol.chomp,
-new_game.player_one.symbol.chomp)
-
-new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
-new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
-new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
-=end
-
-# insert method to check winning here
 
 new_game.win_check(new_game.player_one.name, new_game.player_one.symbol.chomp, new_game.board.tiles)
 
-# add in contitional to win_check that announces a tie after a certain number of turns after which a win is no longer possible
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
+new_game.player_two.turn
+
+new_game.board.update_score(new_game.player_two.choice, new_game.player_two.symbol.chomp,
+new_game.player_one.symbol.chomp)
+
+new_game.win_check(new_game.player_two.name, new_game.player_two.symbol.chomp, new_game.board.tiles)
+
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
+new_game.player_one.turn
+
+new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol.chomp,
+new_game.player_two.symbol.chomp)
+
+new_game.win_check(new_game.player_one.name, new_game.player_one.symbol.chomp, new_game.board.tiles)
+
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
+new_game.player_two.turn
+
+new_game.board.update_score(new_game.player_two.choice, new_game.player_two.symbol.chomp,
+new_game.player_one.symbol.chomp)
+
+new_game.win_check(new_game.player_two.name, new_game.player_two.symbol.chomp, new_game.board.tiles)
+
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
+new_game.player_one.turn
+
+new_game.board.update_score(new_game.player_one.choice, new_game.player_one.symbol.chomp,
+new_game.player_two.symbol.chomp)
+
+new_game.display(new_game.board.tiles[:a], new_game.board.tiles[:b], new_game.board.tiles[:c],
+new_game.board.tiles[:d], new_game.board.tiles[:e], new_game.board.tiles[:f],
+new_game.board.tiles[:g], new_game.board.tiles[:h], new_game.board.tiles[:i])
+
+puts "It's a tie!"
